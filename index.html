@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NBA Draft</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="title">NBA <span class="accent">Griddy</span></div>
+        <div class="subtitle">Draft Builder</div>
+      </div>
+
+      <div class="scoreboard">
+        <div class="score-col">
+          <div id="talent-score" class="score-value">0</div>
+          <div class="score-label">Talent</div>
+        </div>
+        <div class="op">+</div>
+        <div class="score-col">
+          <div id="chemistry-score" class="score-value">0</div>
+          <div class="score-label">Chemistry</div>
+        </div>
+        <div class="op">=</div>
+        <div class="score-col">
+          <div id="final-score" class="score-value final">0</div>
+          <div class="score-label">Final</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="turn">Turn <span id="turn-num">1</span>/8</div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section id="stage" class="stage" aria-label="formation stage">
+        <svg id="chem-svg" class="chem-svg" preserveAspectRatio="none" aria-hidden="true"></svg>
+        
+        <div id="formation" class="formation">
+            <div class="slot" data-pos="PG"><div class="slot-inner"></div></div>
+            <div class="slot" data-pos="SG"><div class="slot-inner"></div></div>
+            <div class="slot" data-pos="C"><div class="slot-inner"></div></div>
+            <div class="slot" data-pos="SF"><div class="slot-inner"></div></div>
+            <div class="slot" data-pos="PF"><div class="slot-inner"></div></div>
+        </div>
+
+        <div id="bench" class="bench">
+            <div class="bench-slot" data-idx="0"><div class="slot-inner"></div></div>
+            <div class="bench-slot" data-idx="1"><div class="slot-inner"></div></div>
+            <div class="bench-slot" data-idx="2"><div class="slot-inner"></div></div>
+        </div>
+      </section>
+
+      <aside class="panel chemistry-panel" aria-label="chemistry explanation">
+        <h2>Chemistry System</h2>
+        <p>The Chemistry score is based on a combination of factors between your starting players.</p>
+        
+        <h3>Bonuses</h3>
+        <ul>
+          <li><strong>Positional Fit:</strong> +10 for each player in their natural position.</li>
+          <li><strong>Archetype Synergy:</strong> +4 for each link between adjacent, complementary players.</li>
+          <li><strong>Same Team:</strong> +15 for each pair of starters from the same NBA team.</li>
+          <li><strong>Same Conference:</strong> +5 for each pair of starters from the same conference (but not the same team).</li>
+        </ul>
+
+        <h3>Archetype Synergies</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Archetype</th>
+              <th>Synergizes With</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary Ball Handler</td>
+              <td>3&D Wing, Stretch Big, Rim Protector</td>
+            </tr>
+            <tr>
+              <td>3&D Wing</td>
+              <td>Primary Ball Handler, Rim Protector</td>
+            </tr>
+            <tr>
+              <td>Stretch Big</td>
+              <td>Primary Ball Handler, Rim Protector</td>
+            </tr>
+            <tr>
+              <td>Rim Protector</td>
+              <td>Primary Ball Handler, 3&D Wing, Stretch Big</td>
+            </tr>
+            <tr>
+              <td>Bench Scorer</td>
+              <td><em>(None)</em></td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <h3>Final Score</h3>
+        <p>
+          The raw score (sum of all bonuses) is multiplied by <strong>0.45</strong> and then capped at <strong>100</strong> to get the final Chemistry score.
+        </p>
+        <p>
+          <strong>Team Score = Average Talent + Chemistry</strong>
+        </p>
+      </aside>
+    </main>
+
+    <div id="choice-overlay" class="choice-overlay hidden" aria-hidden="true">
+      <div class="overlay-backdrop" aria-hidden="true"></div>
+      <div class="overlay-ui" role="dialog" aria-modal="true" aria-label="Draft choices">
+        <div class="overlay-header">
+          <div class="overlay-title">Choose One</div>
+        </div>
+        <div id="choices" class="choices" aria-live="polite"></div>
+      </div>
+      <div class="overlay-actions">
+        <button id="toggle-board" class="ghost-btn">Show Board</button>
+      </div>
+    </div>
+
+    <button id="reset-btn" class="btn">Reset</button>
+
+    <footer class="footer">
+      <div class="note">Click an empty slot in the correct turn to reveal 3 choices. Click a filled slot to select for swapping, then click another slot to swap.</div>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
