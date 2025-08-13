@@ -538,3 +538,49 @@ html, body {
   color: var(--muted);
   line-height: 1.2;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+    padding: 1vh;
+  }
+  .panel {
+    height: auto;
+    max-height: 40vh;
+    order: 2;
+  }
+  .stage {
+    order: 1;
+  }
+  .formation {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+  }
+  .slot, .bench-slot {
+    width: 40vw;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+  .bench {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .choice-card {
+    width: 40vw;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --card-w: 200px;
+    --card-h: 275px;
+  }
+  .main {
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+}
