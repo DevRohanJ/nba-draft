@@ -9,7 +9,6 @@
   --card-h: 17.8rem;
   --ease: cubic-bezier(.22, .9, .3, 1);
   --font: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-  /* Base all sizing on vmin to ensure proportional scaling without overflow */
   font-size: clamp(10px, 1.4vmin, 18px);
 }
 
@@ -28,7 +27,7 @@ html, body {
   background-color: var(--bg);
   font-family: var(--font); 
   color: #fff; 
-  overflow: hidden; /* Absolutely no scrolling on the body */
+  overflow: hidden;
 }
 
 #app { 
@@ -43,7 +42,7 @@ html, body {
   display: flex; 
   align-items: center; 
   justify-content: space-between; 
-  flex-wrap: nowrap; /* Prevent wrapping */
+  flex-wrap: nowrap;
   gap: 1.5rem;
   padding: 1rem 2rem; 
   background: rgba(11, 17, 22, 0.8);
@@ -149,7 +148,8 @@ html, body {
 .stage { 
   position: relative; 
   display: flex; 
-  flex-direction: column; 
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .chem-svg { 
@@ -174,7 +174,6 @@ html, body {
   align-items: center;
   justify-items: center;
   z-index: 3;
-  flex-grow: 1; /* Allow formation to take up available space */
 }
 
 .slot, .bench-slot {
@@ -233,7 +232,6 @@ html, body {
   display: flex; 
   justify-content: center; 
   gap: 1.5rem; 
-  padding-top: 2rem;
   flex-shrink: 0;
 }
 
