@@ -33,7 +33,7 @@
       </div>
 
       <div class="controls">
-        <div class="turn">Turn <span id="turn-num">1</span>/8</div>
+        <div class="turn">Turn <span id="turn-num">1</span>/10</div>
       </div>
     </header>
 
@@ -42,17 +42,34 @@
         <svg id="chem-svg" class="chem-svg" preserveAspectRatio="none" aria-hidden="true"></svg>
         
         <div id="formation" class="formation">
-            <div class="slot" data-pos="PG"><div class="slot-inner"></div></div>
-            <div class="slot" data-pos="SG"><div class="slot-inner"></div></div>
-            <div class="slot" data-pos="C"><div class="slot-inner"></div></div>
-            <div class="slot" data-pos="SF"><div class="slot-inner"></div></div>
-            <div class="slot" data-pos="PF"><div class="slot-inner"></div></div>
+            <div class="slot" data-pos="PF">
+                <div class="slot-inner"></div>
+                <div class="slot-pos-name">PF</div>
+            </div>
+            <div class="slot" data-pos="C">
+                <div class="slot-inner"></div>
+                <div class="slot-pos-name">C</div>
+            </div>
+            <div class="slot" data-pos="SF">
+                <div class="slot-inner"></div>
+                <div class="slot-pos-name">SF</div>
+            </div>
+            <div class="slot" data-pos="PG">
+                <div class="slot-inner"></div>
+                <div class="slot-pos-name">PG</div>
+            </div>
+            <div class="slot" data-pos="SG">
+                <div class="slot-inner"></div>
+                <div class="slot-pos-name">SG</div>
+            </div>
         </div>
 
         <div id="bench" class="bench">
             <div class="bench-slot" data-idx="0"><div class="slot-inner"></div></div>
             <div class="bench-slot" data-idx="1"><div class="slot-inner"></div></div>
             <div class="bench-slot" data-idx="2"><div class="slot-inner"></div></div>
+            <div class="bench-slot" data-idx="3"><div class="slot-inner"></div></div>
+            <div class="bench-slot" data-idx="4"><div class="slot-inner"></div></div>
         </div>
       </section>
 
@@ -102,7 +119,7 @@
       
         <h3>Final Score</h3>
         <p>
-          The raw score (sum of all bonuses) is multiplied by <strong>0.45</strong> and then capped at <strong>100</strong> to get the final Chemistry score.
+          The raw score (sum of all bonuses) is multiplied by <strong>0.6</strong> and then capped at <strong>100</strong> to get the final Chemistry score.
         </p>
         <p>
           <strong>Team Score = Average Talent + Chemistry</strong>
@@ -129,6 +146,28 @@
       <div class="note">Click an empty slot in the correct turn to reveal 3 choices. Click a filled slot to select for swapping, then click another slot to swap.</div>
     </footer>
   </div>
+
+  
+  <template id="player-card-template">
+    <div class="player-card-content">
+      <div class="player-card-logo-wrap">
+        <img class="player-card-logo" src="" alt="Team Logo">
+      </div>
+      <div class="player-card-talent"></div>
+      <div class="player-card-pos"></div>
+      <div class="player-card-photo-wrap">
+        <img class="player-card-photo" src="" alt="Player Photo">
+      </div>
+      <div class="player-card-nameplate">
+        <div class="player-card-name"></div>
+        <div class="player-card-footer-details">
+          <div class="player-card-archetype"></div>
+          <div class="player-card-conference"></div>
+        </div>
+      </div>
+    </div>
+  </template>
+
   <script src="script.js"></script>
 </body>
 </html>
